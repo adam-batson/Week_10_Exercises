@@ -11,7 +11,7 @@ namespace LoopsAndTestsExercises
         // The only thing this class does is check for valid input
         // and return true if the input is valid or false if it's not.
 
-        public static bool CheckInputLength(string input)
+        public static bool CheckReverseInputLength(string input)
         {
             // If input.Length is between 1 and 100, this returns true.
             return input.Length >= 1 && input.Length <= 100;
@@ -38,10 +38,42 @@ namespace LoopsAndTestsExercises
             // If input contains \ or ", returns false.
             // Otherwise, input is valid so returns true.
 
-            if(input.Contains('\\') || input.Contains('\"'))
-                return false;
-            else
-                return true;
+            return !(input.Contains('\\') || input.Contains('\"'));
         }
+
+        public static bool CheckArrayLength(int[] array)
+        {
+            // If array length is between 2 and 500,
+            // returns true. Otherwise, array length is
+            // not acceptable, so returns false.
+
+            return (array.Length >= 2 && array.Length <= 500);
+        }
+
+        public static bool CheckArrayValuesInRange(int[] array)
+        {
+            // If array input contains values below -1000
+            // or above 1000, returns false. Otherwise, 
+            // array input values are within valid range,
+            // so returns true.
+
+            var inRange = true;
+
+            foreach (int item in array)
+                if (item < -1000 || item > 1000)
+                {
+                    inRange = false;
+                    break; // We only need one value out of range to be invalid, so ends loop.
+                }
+
+            return inRange; 
+        }
+
+        public static bool CheckPalindromeInputLength(string input)
+        {
+            // If input.Length is between 1 and 210, this returns true.
+            return input.Length >= 1 && input.Length <= 210;
+        }
+
     }
 }
